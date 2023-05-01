@@ -3,7 +3,7 @@ Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
 
 Notice that the solution set must not contain duplicate triplets.
 
-using HashSet 
+----> USING HashSet
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -34,8 +34,7 @@ class Solution {
         return list;
     }
 }
-
-using 2 pointer
+---> USING 2 Pointer
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
