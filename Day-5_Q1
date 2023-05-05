@@ -1,0 +1,34 @@
+leetcode--> 649
+
+
+class Solution {
+    public String predictPartyVictory(String senate) {
+        Queue<Integer> r= new LinkedList<>();
+        Queue<Integer> s= new LinkedList<>();
+        for(int i=0; i<senate.length(); i++){
+            char ch= senate.charAt(i);
+            if(ch=='R'){
+                r.offer(i);
+            }
+            else{
+                s.offer(i);
+            }
+        }
+
+        while(r.size()>0 && s.size()>0){
+            int first= r.poll();
+            int second= s.poll();
+            if(first<second){
+                r.offer(first+senate.length());
+            }
+            else{
+                s.offer(second+senate.length());
+            }
+        }
+       
+       if(r.size()>0){
+           return "Radiant";
+       }
+       return "Dire";
+    }
+}
