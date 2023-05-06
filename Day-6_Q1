@@ -1,0 +1,40 @@
+     345--> reverse vowel
+     
+     class Solution {
+    public String reverseVowels(String s) {
+        Set<Character> set= new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+
+        set.add('A');
+        set.add('E');
+        set.add('I');
+        set.add('O');
+        set.add('U');
+        
+        StringBuilder sb= new StringBuilder(s);
+        int st=0;
+        int e= s.length()-1;
+        while(st<=e){
+            if(set.contains(sb.charAt(st)) && set.contains(sb.charAt(e))){
+                char ch= sb.charAt(st);
+                sb.setCharAt(st,sb.charAt(e));
+                sb.setCharAt(e,ch);
+                st++;
+                e--;
+            }
+            else if(!set.contains(sb.charAt(st))){
+                st++;
+            }
+            else if(!set.contains(sb.charAt(e))){
+                e--;
+            }
+        }
+
+        String rev= sb.toString();
+        return rev;
+    }
+}
